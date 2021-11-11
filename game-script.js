@@ -7,53 +7,63 @@ function computerPlay(){
   return(choose[picked]);
 }
 
+function playerSelection() {
+  let choose = prompt("Your Turn enter your choice [Paper, Rock or Scissor] :", "enter") || "";
+  return choose.toLowerCase();
+}
+
+
+
 
 function playARound (computerSelection, playerSelection) {
+  let output = null;
+
   if (computerSelection === "rock") {
     switch (playerSelection){
       case "rock" : 
-        return (`Its a tie`);
+        output = "Its a tie";
+        break;
 
-     case "scissor" : 
-      return(`You Lose! Rock breaks Scissor`);
-
+      case "scissor" : 
+        output = "You Lose! Rock breaks Scissor";
+        break;
      case "paper" :
-      return(`You Win! Paper covers rock`);
+      output = "You Win! Paper covers rock";
+      break;
     }
   }
   if (computerSelection === "scissor") {
     switch(playerSelection){
       case "rock" :
-        return(`You Win! Rock breaks Scissor`);
-
+        output ="You Win! Rock breaks Scissor";
+        break;
       case "scissor" :
-        return(`Its a tie`);
-
+        output = "Its a tie";
+        break;
       case "paper" :
-      return(`You Lose! Scissor cuts Paper`);
+        output = "You Lose! Scissor cuts Paper";
+        break;
     }
   }
 
   if (computerSelection === "paper") {
     switch(playerSelection){
       case "rock" :
-        return(`You Lose! Paper covers Rock`)
+        output = "You Lose! Paper covers Rock";
+        break;
       case "scissor" :
-        return(`You Win! Scissor cuts Paper`)
+        output = "You Win! Scissor cuts Paper";
+        break;
       case "paper" :
-      return(`Its a tie`)
+        output = "Its a tie";
+        break;
     }
   }
+
+  // console.log(output)
+  return output;
 }
 
 
-let computerScore = null;
-let playerScore = null;
-
-function playerSelection() {
-  let choose = prompt("Your Turn enter your choice [Paper, Rock or Scissor] :", "enter");
-  return choose.toLocaleLowerCase();
-}
-
-
-console.log(playARound(computerPlay(), playerSelection));
+let computerScore = 0;
+let playerScore = 0;
