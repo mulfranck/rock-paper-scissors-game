@@ -10,29 +10,33 @@ function computerPlay(){
 
 function playARound (computerSelection, playerSelection) {
   if (computerSelection === "rock") {
-    if (playerSelection === "rock"){
-      return(`comp ${computerSelection} -- user : ${playerSelection} == tie`)
-    } else if ( playerSelection === "scissor"){
+    switch (playerSelection){
+      case "rock" : 
+        return(`comp ${computerSelection} -- user : ${playerSelection} == tie`)
+     case "scissor" : 
       return(`comp ${computerSelection} -- user : ${playerSelection} == comp wins`)
-    } else if (playerSelection === "paper") {
+
+     case "paper" :
       return(`comp ${computerSelection} -- user : ${playerSelection} == user wins`)
     }
   }
   if (computerSelection === "scissor") {
-    if (playerSelection === "rock"){
-      return(`comp ${computerSelection} -- user : ${playerSelection} == user wins`)
-    } else if ( playerSelection === "scissor"){
-      return(`comp ${computerSelection} -- user : ${playerSelection} == tie`)
-    } else if (playerSelection === "paper") {
+    switch(playerSelection){
+      case "rock" :
+        return(`comp ${computerSelection} -- user : ${playerSelection} == user wins`)
+      case "scissor" :
+        return(`comp ${computerSelection} -- user : ${playerSelection} == tie`)
+      case "paper" :
       return(`comp ${computerSelection} -- user : ${playerSelection} == comp wins`)
     }
   }
   if (computerSelection === "paper") {
-    if (playerSelection === "rock"){
-      return(`comp ${computerSelection} -- user : ${playerSelection} == comp wins`)
-    } else if ( playerSelection === "scissor"){
-      return(`comp ${computerSelection} -- user : ${playerSelection} == user wins`)
-    } else if (playerSelection === "paper") {
+    switch(playerSelection){
+      case "rock" :
+        return(`comp ${computerSelection} -- user : ${playerSelection} == comp wins`)
+      case "scissor" :
+        return(`comp ${computerSelection} -- user : ${playerSelection} == user wins`)
+      case "paper" :
       return(`comp ${computerSelection} -- user : ${playerSelection} == tie`)
     }
   }
