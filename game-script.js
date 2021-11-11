@@ -8,7 +8,19 @@ function computerPlay(){
 }
 
 function playerSelection() {
-  let choose = prompt("Your Turn enter your choice [Paper, Rock or Scissor] :", "enter") || "";
+  let choose;
+  // = prompt("Enter a valid option [Paper, Rock or Scissor] :", "enter") || "";
+  let option = ['rock','paper','scissor'];
+  // console.log(choose)
+  // if (){
+    
+  // }
+
+  do {
+    choose = prompt("Your Turn enter your choice [Paper, Rock or Scissor] : ")
+    console.log(choose)
+  } while(!option.includes(choose.toLowerCase()))
+  // while choose is not included in option
   return choose.toLowerCase();
 }
 
@@ -67,6 +79,7 @@ function playARound (computerSelection, playerSelection) {
 
 let computerScore = 0;
 let playerScore = 0;
+let total = 0;
 
 
 
@@ -76,19 +89,23 @@ function game () {
   for (let i = 1; i<=5; i++){
     decision = (playARound(computerPlay(), playerSelection()))
     console.log(decision);
+    ++total;
     if (decision.includes("Win")){
-      playerScore++;
+      ++playerScore;
       console.log(playerScore)
     }else if ( decision.includes("Lose")){
-      computerScore++;
+      ++computerScore;
     } else {
       decision = playARound(playARound(computerPlay(), playerSelection()))
-      // console.log(decision);
-
     }
   }
 
-  console.log(`${playerScore} vs ${computerScore}`);
+  // console.log(`
+  // ${playerScore} vs ${computerScore}
+  // total ${total}
+  // `);
+
+
 }
 
 // console.log(playARound(computerPlay(), playerSelection()));
