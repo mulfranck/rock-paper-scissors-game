@@ -10,7 +10,7 @@ function computerPlay(){
 
 function playARound (computerSelection, playerSelection) {
   if (computerSelection === "rock") {
-    switch (playerSelection.toLowerCase()){
+    switch (playerSelection){
       case "rock" : 
         return (`Its a tie`);
 
@@ -22,7 +22,7 @@ function playARound (computerSelection, playerSelection) {
     }
   }
   if (computerSelection === "scissor") {
-    switch(playerSelection.toLowerCase()){
+    switch(playerSelection){
       case "rock" :
         return(`You Win! Rock breaks Scissor`);
 
@@ -35,7 +35,7 @@ function playARound (computerSelection, playerSelection) {
   }
 
   if (computerSelection === "paper") {
-    switch(playerSelection.toLowerCase()){
+    switch(playerSelection){
       case "rock" :
         return(`You Lose! Paper covers Rock`)
       case "scissor" :
@@ -46,6 +46,14 @@ function playARound (computerSelection, playerSelection) {
   }
 }
 
-let playerSelection = prompt("Your Turn enter your choice [Paper, Rock or Scissor] :", "enter");
+
+let computerScore = null;
+let playerScore = null;
+
+function playerSelection() {
+  let choose = prompt("Your Turn enter your choice [Paper, Rock or Scissor] :", "enter");
+  return choose.toLocaleLowerCase();
+}
+
 
 console.log(playARound(computerPlay(), playerSelection));
