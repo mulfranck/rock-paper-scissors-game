@@ -18,7 +18,7 @@ function playerSelection() {
 
   do {
     choose = prompt("Your Turn enter your choice [Paper, Rock or Scissor] : ")
-    console.log(choose)
+    // console.log(choose)
   } while(!option.includes(choose.toLowerCase()))
   // while choose is not included in option
   return choose.toLowerCase();
@@ -49,9 +49,11 @@ function playARound (computerSelection, playerSelection) {
       case "rock" :
         output ="You Win! Rock breaks Scissor";
         break;
+
       case "scissor" :
         output = "Its a tie";
         break;
+
       case "paper" :
         output = "You Lose! Scissor cuts Paper";
         break;
@@ -80,6 +82,7 @@ function playARound (computerSelection, playerSelection) {
 let computerScore = 0;
 let playerScore = 0;
 let total = 0;
+let tie = 0;
 
 
 
@@ -92,21 +95,26 @@ function game () {
     ++total;
     if (decision.includes("Win")){
       ++playerScore;
-      console.log(playerScore)
+      
+      // console.log(playerScore)
     }else if ( decision.includes("Lose")){
       ++computerScore;
+    
     } else {
-      decision = playARound(playARound(computerPlay(), playerSelection()))
+      decision = playARound(playARound(computerPlay(), playerSelection()));
+      ++tie;
     }
   }
 
-  // console.log(`
-  // ${playerScore} vs ${computerScore}
-  // total ${total}
-  // `);
-
-
+  gameOver(playerScore, computerScore, tie, total)
+  
 }
 
+gameOver = (playerScore, computerScore, tie, total) => {
+  console.log(`
+  computer ${computerScore} vs you ${playerScore}
+  total runs ${total} and ${tie} ties`)
+  console.log(playerScore>computerScore ? "You Win dude! ;D" : "You Lose dude :C")
+}
 // console.log(playARound(computerPlay(), playerSelection()));
 game();
