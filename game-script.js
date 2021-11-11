@@ -67,3 +67,29 @@ function playARound (computerSelection, playerSelection) {
 
 let computerScore = 0;
 let playerScore = 0;
+
+
+
+function game () {
+  
+  let decision;
+  for (let i = 1; i<=5; i++){
+    decision = (playARound(computerPlay(), playerSelection()))
+    console.log(decision);
+    if (decision.includes("Win")){
+      playerScore++;
+      console.log(playerScore)
+    }else if ( decision.includes("Lose")){
+      computerScore++;
+    } else {
+      decision = playARound(playARound(computerPlay(), playerSelection()))
+      // console.log(decision);
+
+    }
+  }
+
+  console.log(`${playerScore} vs ${computerScore}`);
+}
+
+// console.log(playARound(computerPlay(), playerSelection()));
+game();
