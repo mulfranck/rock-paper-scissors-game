@@ -18,7 +18,24 @@ function playARound (computerSelection, playerSelection) {
       return(`comp ${computerSelection} -- user : ${playerSelection} == user wins`)
     }
   }
-  
+  if (computerSelection === "scissor") {
+    if (playerSelection === "rock"){
+      return(`comp ${computerSelection} -- user : ${playerSelection} == user wins`)
+    } else if ( playerSelection === "scissor"){
+      return(`comp ${computerSelection} -- user : ${playerSelection} == tie`)
+    } else if (playerSelection === "paper") {
+      return(`comp ${computerSelection} -- user : ${playerSelection} == comp wins`)
+    }
+  }
+  if (computerSelection === "paper") {
+    if (playerSelection === "rock"){
+      return(`comp ${computerSelection} -- user : ${playerSelection} == comp wins`)
+    } else if ( playerSelection === "scissor"){
+      return(`comp ${computerSelection} -- user : ${playerSelection} == user wins`)
+    } else if (playerSelection === "paper") {
+      return(`comp ${computerSelection} -- user : ${playerSelection} == tie`)
+    }
+  }
 }
 
 let playerSelection = "rock";
