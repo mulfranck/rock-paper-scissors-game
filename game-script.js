@@ -6,6 +6,8 @@ let tie = 0;
 
 let playerSelection = ""
 let btns = document.querySelectorAll('.btn');
+let playerScoreHolder = document.querySelector('#player-score');
+let computerScoreHolder = document.querySelector('#computer-score');
 
 function computerPlay(){
   let picked = Math.floor((Math.random()*3));
@@ -48,6 +50,11 @@ const endGame = () => {
   }
 }
 
+function updateScore() {
+  console.log(playerScore)
+  computerScoreHolder.textContent = computerScore;
+  playerScoreHolder.textContent = playerScore;
+}
 const gameOver = () => {
   console.log(`
   computer ${computerScore} vs you ${playerScore}
@@ -63,6 +70,7 @@ btns.forEach(btn => {
 
 
     playARound((playerSelection).toLowerCase(), computerSelection)
+    updateScore();
     endGame();
   })
 })
