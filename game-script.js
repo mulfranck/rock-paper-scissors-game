@@ -60,12 +60,15 @@ function updateScore() {
   computerScoreHolder.textContent = computerScore;
   playerScoreHolder.textContent = playerScore;
 }
+
 const gameOver = (byWinner) => {
   // playGround.classList.toggle('mute');
-  playGround.innerHTML = `
-    <h2 class="winner"> You ${byWinner} after playing ${total} rounds with ${tie} ties </h2>
-  `
+  playGround.innerHTML += `
+    <h2 class="prevent"> You ${byWinner} after playing ${total} rounds with ${tie} ties </h2>
+  `;
 }
+
+
 
 btns.forEach(btn => {
   btn.addEventListener('click', function(e){
