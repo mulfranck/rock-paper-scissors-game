@@ -6,6 +6,7 @@ let tie = 0;
 
 let playerSelection = ""
 let btns = document.querySelectorAll('.btn');
+let playGround = document.querySelector('.playGround');
 let playerScoreHolder = document.querySelector('#player-score');
 let computerScoreHolder = document.querySelector('#computer-score');
 
@@ -45,7 +46,7 @@ function playARound (playerSelection, computerSelection){
 }
 
 const endGame = () => {
-  if (playerScore === 5 || computerScore === 5) {
+  if (playerScore === 2 || computerScore === 3) {
     gameOver();
   }
 }
@@ -56,10 +57,7 @@ function updateScore() {
   playerScoreHolder.textContent = playerScore;
 }
 const gameOver = () => {
-  console.log(`
-  computer ${computerScore} vs you ${playerScore}
-  total runs ${total} and ${tie} ties`)
-  console.log(playerScore>computerScore ? "You Win dude! ;D" : "You Lose dude :C")
+  playGround.classList.toggle('mute');
 }
 
 btns.forEach(btn => {
