@@ -17,23 +17,23 @@ function computerPlay(){
 }
 
 function playARound (playerSelection, computerSelection){
-  let winner = "";
+  // let winner = "";
 
   // console.log(typeof playerSelection)
   
-
+  ++total;
   //player wins
   if((computerSelection === 'rock' && playerSelection === 'paper') || //paper covers
      (computerSelection === 'paper' && playerSelection === 'scissor') || //scissor cuts
      (computerSelection === 'scissor') && playerSelection === 'rock') { //rock breaks
-        winner = `You win, ${playerSelection} beats ${computerSelection}`;
+        // winner = `You win, ${playerSelection} beats ${computerSelection}`;
         ++playerScore;
   }
   //computer wins 
   if((computerSelection === 'paper' && playerSelection === 'rock') || //paper covers
      (computerSelection === 'scissor' && playerSelection === 'paper') || //scissor cuts
      (computerSelection === 'rock') && playerSelection === 'scissor') { //rock breaks
-        winner = "You Lost!";
+        // winner = "You Lost!";
         ++computerScore;
   }
 
@@ -42,13 +42,17 @@ function playARound (playerSelection, computerSelection){
     console.log(`tie is ${tie}`)
     // playARound(computerSelection, playerSelection);
   }
-  console.log(winner);
+  // console.log(winner);
 }
 
 const endGame = () => {
-  if (playerScore === 2 || computerScore === 3) {
-    gameOver();
+  if (playerScore === 5) {
+    gameOver('Win')
+  } 
+  if (computerScore === 5) {
+    gameOver('Lost')
   }
+
 }
 
 function updateScore() {
@@ -56,8 +60,11 @@ function updateScore() {
   computerScoreHolder.textContent = computerScore;
   playerScoreHolder.textContent = playerScore;
 }
-const gameOver = () => {
-  playGround.classList.toggle('mute');
+const gameOver = (byWinner) => {
+  // playGround.classList.toggle('mute');
+  playGround.innerHTML = `
+    <h2 class="winner"> You ${byWinner} after playing ${total} rounds with ${tie} ties </h2>
+  `
 }
 
 btns.forEach(btn => {
