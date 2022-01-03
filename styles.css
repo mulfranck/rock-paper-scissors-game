@@ -7,11 +7,11 @@ body {
   display: flex;
   justify-content: center;
   font-family: 'Courier New', Courier, monospace;
-  background-color: rgb(183, 187, 187);
+  background-color: rgb(198, 199, 199);
 }
 
 .container {
-   background-color: rgba(197, 197, 197, 0.801);
+   background-color: rgba(179, 179, 179, 0.801);
    width: 80%;
    height: 100vh;
    display: flex;
@@ -35,7 +35,7 @@ img {
   height: 10rem;
   padding-top: 1.2rem;
   border: 2px solid rgb(58, 80, 74);
-  margin: .5rem;
+  margin: .2rem;
   transition: all 200ms;
 }
 
@@ -70,4 +70,54 @@ img:hover {
 #endgame button:hover {
   color: floralwhite;
   background-color: rgb(58, 80, 74);
+}
+
+
+@media screen and (max-width: 648px) {
+
+  img {
+    width:  8rem;
+    height: 8rem;
+  }
+}
+@media screen and (max-width: 528px) {
+
+  img {
+    width: 6rem;
+    height: 6rem;
+  }
+}
+@media screen and (max-width: 451px) {
+  h1 {
+    font-size: 130%;
+  }
+  .results .scores-owner {
+    font-size: 90%;
+    width: 200px;
+  }
+
+  img {
+    padding-top: .6rem;
+    /* margin: none; */
+    width: 5rem;
+    height: 5rem;
+  }
+}
+@media screen and (max-width: 345px) {
+  h1 {
+    font-size: 100%;
+  }
+  .results .scores-owner {
+    font-size: 100%;
+    width: 200px;
+  }
+  
+  img {
+    padding-top: .5rem;
+    width: 4rem;
+    height: 4.5rem;
+  }
+  footer p {
+    font-size: 90%;
+  }
 }
