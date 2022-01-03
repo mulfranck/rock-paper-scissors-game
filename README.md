@@ -21,5 +21,5 @@ When the game is won and when its not won and when it's a tie.
 * How to search the internet for that i want.
 
 ## Deployed
-The game is live at <a href="http://mulfranck.github.io/rock-paper-scissors">Rock paper scissor github page</a>
+The game is live at <a href="http://mulfranck.github.io/rock-paper-scissors-game">Rock paper scissor github page</a>
 
