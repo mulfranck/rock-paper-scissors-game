@@ -5,7 +5,8 @@ let total = 0;
 let tie = 0;
 let playerSelection = ""
 
-let $body = document.querySelector('body')
+let $endoption = document.querySelector('#endgame');
+let $endbtn = document.querySelector('#endgame button');
 let $btns = document.querySelectorAll('.playGround img');
 let $playGround = document.querySelector('.playGround');
 let $playerScoreHolder = document.querySelector('#player-score');
@@ -53,14 +54,23 @@ function updateScore() {
 }
 
 const gameOver = (byWinner) => {
-  $body.innerHTML += `
-  <section class="endOption">
-    <h2 class="end"> You ${byWinner} after playing ${total} rounds with ${tie} ties </h2>
-  </section>
-  `;
+  let endResults= `You ${byWinner} after playing ${total} rounds with ${tie} ties.`;
+  let endResult = document.createElement('h2');
+  endResult.append(endResults);
+
+  $endoption.insertBefore(endResult, $endbtn);
+  $endoption.classList.toggle('muted');
+  $endoption.classList.toggle('endOption');
+  playerScore = computerScore = 0;
+  updateScore();
 }
 
+function handleEndGames() {
+  $endoption.classList.toggle('endOption');
+  $endoption.classList.toggle('muted');
+}
 
+$endbtn.addEventListener('click', handleEndGames);
 $btns.forEach($btn => {
   $btn.addEventListener('click', function(e){
     playerSelection = e.target.id;

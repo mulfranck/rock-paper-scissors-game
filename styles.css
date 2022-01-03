@@ -45,6 +45,7 @@ img:hover {
 
 .endOption {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   position: absolute;
@@ -52,4 +53,21 @@ img:hover {
   height: 100%;
 
   background-color:dimgray;
+  color: rgba(54, 63, 60, 0.938);
+}
+.muted {
+  /* visibility: hidden;/ */
+  display: none;
+}
+#endgame button {
+  margin: 1rem;
+  padding: .4rem .8rem;
+  border: none;
+  font-size: 120%;
+  border-radius: .3rem;
+  background-color: rgba(177, 176, 175, 0.822);
+}
+#endgame button:hover {
+  color: floralwhite;
+  background-color: rgb(58, 80, 74);
 }
