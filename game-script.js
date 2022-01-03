@@ -5,7 +5,8 @@ let total = 0;
 let tie = 0;
 let playerSelection = ""
 
-let $btns = document.querySelectorAll('.btn');
+let $body = document.querySelector('body')
+let $btns = document.querySelectorAll('.playGround img');
 let $playGround = document.querySelector('.playGround');
 let $playerScoreHolder = document.querySelector('#player-score');
 let $computerScoreHolder = document.querySelector('#computer-score');
@@ -52,17 +53,19 @@ function updateScore() {
 }
 
 const gameOver = (byWinner) => {
-  $playGround.innerHTML += `
-    <h2 class="prevent"> You ${byWinner} after playing ${total} rounds with ${tie} ties </h2>
+  $body.innerHTML += `
+  <section class="endOption">
+    <h2 class="end"> You ${byWinner} after playing ${total} rounds with ${tie} ties </h2>
+  </section>
   `;
 }
 
 
 $btns.forEach($btn => {
   $btn.addEventListener('click', function(e){
-    playerSelection = e.target.textContent;
+    playerSelection = e.target.id;
     computerSelection = computerPlay();
-
+    console.log(computerSelection + ' Vs ' + playerSelection)
     playARound((playerSelection).toLowerCase(), computerSelection)
     updateScore();
     endGame();
